@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project A.Z.A. - Hunter of Fakes</title>
+    <style>
+        :root {
+            --accent: #FF5252; /* Красный цвет расследования */
+            --bg-dark: #0F1115;
+            --bg-card: #1A1D24;
+            --text-main: #E0E6ED;
+            --text-muted: #94A3B8;
+            --code-bg: #232730;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Секция Истории */
+        .story-section {
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 1px solid #333;
+            background: radial-gradient(circle at top, #1a1d24 0%, var(--bg-dark) 100%);
+        }
+
+        .story-title {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(45deg, #fff, var(--text-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .story-card {
+            background-color: rgba(255, 82, 82, 0.1); /* Легкий красный оттенок */
+            border-left: 4px solid var(--accent);
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 600px;
+            text-align: left;
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            font-family: 'Georgia', serif; /* Шрифт для истории */
+            font-size: 1.2rem;
+            color: #ffcccc;
+        }
+
+        /* Техническая часть */
+        .tech-section {
+            padding: 60px 0;
+        }
+
+        h2 {
+            color: var(--text-main);
+            font-size: 2rem;
+            margin-top: 60px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .step-number {
+            background: var(--accent);
+            color: white;
+            font-size: 0.9rem;
+            padding: 2px 10px;
+            border-radius: 20px;
+            vertical-align: middle;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .tool-card {
+            background-color: var(--bg-card);
+            border: 1px solid #333;
+            border-radius: 16px;
+            padding: 30px;
+            transition: transform 0.2s;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .tool-card h3 {
+            margin-top: 0;
+            color: var(--accent);
+            font-family: monospace;
+            font-size: 1.4rem;
+        }
+
+        code {
+            font-family: 'Fira Code', monospace;
+            background-color: var(--code-bg);
+            padding: 4px 8px;
+            border-radius: 6px;
+            color: #A5B4FC;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            padding: 20px;
+            border-radius: 12px;
+            overflow-x: auto;
+            color: #A5B4FC;
+        }
+
+        .highlight {
+            color: #81E6D9;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 50px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid #333;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background-color: white;
+            color: var(--bg-dark);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="story-section">
+        <div class="container">
+            <div class="story-title">Охота на Азу</div>
+            <p style="color: var(--text-muted);">Инструмент для выявления нечестной игры в конкурсах</p>
+            
+            <div class="story-card">
+                "Жила-была девочка Аза в городе Старый Оскол. Она очень любила подарки и поэтому завела очень много фейков, чтобы загонять их в конкурсы, увеличивая свой шанс на победу..."
+            </div>
+
+            <p>Но любой след в интернете можно найти. Этот проект создан, чтобы автоматизировать поиск подозрительной активности и выявлять сетки ботов.</p>
+            
+            <a href="https://github.com/ВАШ_НИК/ВАШ_РЕПОЗИТОРИЙ" class="btn">Скачать скрипты</a>
+        </div>
+    </header>
+
+    <div class="container tech-section">
+        
+        <h2><span class="step-number">ШАГ 1</span> Сбор улик</h2>
+        <p>Первый скрипт анализирует страницу «Азы» — пользователя, который массово репостит конкурсы. Он находит оригиналы записей, игнорируя мусор.</p>
+
+        <div class="tool-card">
+            <h3>vk_posts.py</h3>
+            <p>Скрипт сканирует стену подозреваемого из файла <code>user_links.txt</code> и вытаскивает прямые ссылки на розыгрыши.</p>
+            <ul>
+                <li><strong>Вход:</strong> Ссылка на страницу подозреваемого.</li>
+                <li><strong>Процесс:</strong> Поиск репостов и извлечение <code>original_post_id</code>.</li>
+                <li><strong>Выход:</strong> Файл <span class="highlight">reposts.txt</span> со списком конкурсов.</li>
+            </ul>
+        </div>
+
+        <h2><span class="step-number">ШАГ 2</span> Вычисление фейков</h2>
+        <p>Теперь, имея список конкурсов, в которых участвует Аза, мы запускаем второй скрипт. Он проверяет, кто еще лайкает эти же посты с пугающей регулярностью.</p>
+
+        <div class="tool-card">
+            <h3>vk_likes.py</h3>
+            <p>Скрипт проходит по всем собранным ссылкам и считает статистику лайков для каждого участника.</p>
+            <ul>
+                <li><strong>Логика:</strong> Если какой-то "Вася" лайкнул 90% тех же конкурсов, что и Аза — скорее всего, это её фейк.</li>
+                <li><strong>Результат:</strong> Два списка подозреваемых:
+                    <br>📄 <code>lol.txt</code> — Активность > 50%
+                    <br>📄 <code>lol2.txt</code> — Активность > 75% (Гарантированные фейки)
+                </li>
+            </ul>
+        </div>
+
+        <h2>Как запустить расследование</h2>
+        <pre><code># 1. Вставь ссылку на Азу в user_links.txt
+# 2. Собери конкурсы с её стены:
+python vk_posts.py
+
+# 3. Скопируй содержимое reposts.txt в links.txt
+# 4. Вычисли её фейков:
+python vk_likes.py</code></pre>
+
+    </div>
+
+    <footer class="footer">
+        <p>Сделано ради прикола</p>
+    </footer>
+
+</body>
+</html>
